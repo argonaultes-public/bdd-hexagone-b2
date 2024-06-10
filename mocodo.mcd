@@ -1,0 +1,11 @@
+
+Editeur: editeur_id, raison sociale, siège social
+Editer, 11 Jeu de société, 0N Editeur
+
+Jeu de société: jeu_de_societe_id, type, age, titre, nb_joueurs
+Acheter, XX Client, XX Magasin, XX Jeu de société: Date achat
+Client: client_id, nom, adresse_email, age
+
+Magasin: magasin_id, website
+Vendre, 0N Magasin, 0N Jeu de société: Prix
+
