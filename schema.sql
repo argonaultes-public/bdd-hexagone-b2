@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS buy, sell, clients, gameboards, publishers, stores;
+
 CREATE TABLE buy (
   PRIMARY KEY (client_id, store_id , gameboard_id ),
   client_id         INT NOT NULL,
@@ -41,12 +43,12 @@ CREATE TABLE sell (
   PRIMARY KEY (store_id , gameboard_id ),
   store_id         INT NOT NULL,
   gameboard_id  INT NOT NULL,
-  price              FLOAT (check price >= 0)
+  price              FLOAT check(price >= 0)
 );
 
 ALTER TABLE buy ADD FOREIGN KEY (gameboard_id ) REFERENCES gameboards (gameboard_id );
 ALTER TABLE buy ADD FOREIGN KEY (store_id ) REFERENCES stores(store_id );
-ALTER TABLE buy ADD FOREIGN KEY (client_id) REFERENCES Client (client_id);
+ALTER TABLE buy ADD FOREIGN KEY (client_id) REFERENCES clients (client_id);
 
 ALTER TABLE gameboards ADD FOREIGN KEY (publisher_id) REFERENCES publishers(publisher_id);
 
