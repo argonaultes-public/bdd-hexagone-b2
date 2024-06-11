@@ -12,7 +12,7 @@ CREATE TABLE clients (
   PRIMARY KEY (client_id),
   client_id     SERIAL,
   name           VARCHAR(42),
-  email VARCHAR(42) CHECK(regexp_like(email, '[a-zA-Z0-9_]{,4}?@[a-z0-9]+\.[a-z0-9]{,3}')),
+  email VARCHAR(42) CHECK(regexp_like(email, '[a-zA-Z0-9_]{1,4}?@[a-z0-9]+\.[a-z0-9]{1,3}')),
   age           INT CHECK(age >= 18)
 );
 
