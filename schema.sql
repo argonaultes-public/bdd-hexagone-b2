@@ -1,11 +1,11 @@
 DROP TABLE IF EXISTS buy, sell, clients, gameboards, publishers, stores;
 
 CREATE TABLE buy (
-  PRIMARY KEY (client_id, store_id , gameboard_id ),
   client_id         INT NOT NULL,
   store_id         INT NOT NULL,
   gameboard_id  INT NOT NULL,
-  date_achat        TIMESTAMP
+  date_achat        TIMESTAMP,
+  quantite  INT check (quantite > 0)
 );
 
 CREATE TABLE clients (
@@ -40,7 +40,6 @@ CREATE TABLE stores (
 );
 
 CREATE TABLE sell (
-  PRIMARY KEY (store_id , gameboard_id ),
   store_id         INT NOT NULL,
   gameboard_id  INT NOT NULL,
   price              FLOAT check(price >= 0)
