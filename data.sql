@@ -48,3 +48,4 @@ insert into buy (
 	'2010-01-12', 1)
 	;
 
+update gameboards set max_nb_players = 2 where title = 'Living Forest';

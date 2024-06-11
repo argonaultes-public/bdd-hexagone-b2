@@ -4,8 +4,8 @@ CREATE TABLE buy (
   client_id         INT NOT NULL,
   store_id         INT NOT NULL,
   gameboard_id  INT NOT NULL,
-  date_achat        TIMESTAMP,
-  quantite  INT check (quantite > 0)
+  date_achat        TIMESTAMP NOT NULL,
+  quantite  INT check (quantite > 0) NOT NULL
 );
 
 CREATE TABLE clients (
