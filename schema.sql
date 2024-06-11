@@ -12,7 +12,7 @@ CREATE TABLE clients (
   PRIMARY KEY (client_id),
   client_id     SERIAL,
   name           VARCHAR(42),
-  email VARCHAR(42) CHECK(regexp_like(email, '[a-zA-Z0-9_]{1,4}?@[a-z0-9]+\.[a-z0-9]{1,3}')),
+  email VARCHAR(42) CHECK(regexp_like(email, '[a-zA-Z0-9_]{1,4}?@[a-z0-9]+\.[a-z0-9]{1,3}')) UNIQUE,
   age           INT CHECK(age >= 18)
 );
 
@@ -36,7 +36,7 @@ CREATE TABLE gameboards (
 CREATE TABLE stores (
   PRIMARY KEY (store_id ),
   store_id  SERIAL NOT NULL,
-  website    VARCHAR(42) CHECK(regexp_like(website, '.+\.[a-z0-9]{,4}'))
+  website    VARCHAR(42) CHECK(regexp_like(website, '.+\.[a-z0-9]{1,4}'))
 );
 
 CREATE TABLE sell (
