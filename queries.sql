@@ -119,12 +119,19 @@ insert into buy (
 
 select count(*) from gameboards;
 
+-- Division de buy par gameboard pour trouver tous les clients ayant commandé tous les jeux
+
 -- calculer toutes les solutions possibles
 -- CROSS JOIN
-
 -- retirer les cas qui se sont réalisés
 -- EXCEPT
 
+select client_id from clients except
+select client_id from (
+	select client_id, gameboard_id from clients cross join gameboards
+	except
+	select client_id, gameboard_id from buy
+);
 -- le résultat contient les clients qui n'ont pas tout acheté
 
 
